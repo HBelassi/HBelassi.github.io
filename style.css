@@ -164,7 +164,8 @@ nav.scrolled {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   background: var(--bg-white);
-  padding-left: var(--gutter);
+padding: 0 var(--gutter);   /* adds right padding to match left */
+gap: 11px;                   /* adds 11px gap between all cards — matches Squarespace exactly */
 }
 
 .project-card {
