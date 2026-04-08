@@ -7,7 +7,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap');
 
 /* ---------- RESET & BASE ---------- */
-*, *::before, *::after {
+*, *::before, *::after {h
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -19,7 +19,7 @@
   --text:     #111111;
   --muted:    #777;
   --border:   #e8e4e0;
-  --accent:   hsla(354.04, 100%, 68.43%, 1); /* hot pink */
+    --accent:   #FF5E6E;
   --font:     'Poppins', sans-serif;
   --nav-h:    70px;
   --max-w:    1400px;
@@ -230,7 +230,7 @@ nav.scrolled {
   align-items: flex-start;
   padding: 8%;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 1s;
 }
 
 .project-card:hover .overlay { opacity: 1; }
