@@ -54,14 +54,15 @@
   </div>
   <script>
     const nav = document.getElementById('mainNav');
-    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
-    function filterProjects(category, btn) {
-      document.querySelectorAll('.filter-tabs button').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      document.querySelectorAll('.project-card').forEach(card => {
-        card.setAttribute('data-hidden', card.dataset.category !== category);
-      });
-    }
-  </script>
+        window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
+            filterProjects('ux', document.querySelector('.filter-tabs button.active'));
+                function filterProjects(category, btn) {
+                      document.querySelectorAll('.filter-tabs button').forEach(b => b.classList.remove('active'));
+                            btn.classList.add('active');
+                                  document.querySelectorAll('.project-card').forEach(card => {
+                                          card.setAttribute('data-hidden', card.dataset.category !== category);
+                                                });
+                                                    }
+                                                      </script>
 </body>
 </html>
