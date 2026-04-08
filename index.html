@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hana Belassi.</title>
+  <meta name="description" content="UX Researcher & Designer — Solving problems through insightful storytelling.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav id="mainNav">
+    <a class="nav-logo" href="index.html">Hana Belassi.</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Projects</a></li>
+      <li><a href="about.html">About Me</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-wrapper">
+
+    <!-- HERO -->
+    <section class="hero">
+      <h1>Hey there, I'm Hana.</h1>
+      <p>Solving problems through insightful storytelling</p>
+    </section>
+
+    <!-- FILTER TABS -->
+    <div class="filter-section">
+      <ul class="filter-tabs">
+        <li>
+          <button class="active" data-filter="ux" onclick="filterProjects('ux', this)">
+            UX Research / Design
+          </button>
+        </li>
+        <li>
+          <button data-filter="industrial" onclick="filterProjects('industrial', this)">
+            Industrial Design
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <!-- PROJECT GRID -->
+    <!--
+      HOW TO ADD A NEW PROJECT:
+      1. Copy one <a class="project-card"> block below
+      2. Change href to your new project file (e.g., href="myproject.html")
+      3. Change data-category to either "ux" or "industrial"
+      4. Replace the img src with your project thumbnail image
+      5. Update the project-name and project-tag text
+      6. Add data-protected="true" if you want a password lock icon
+      7. Create the new project HTML file (copy stayfit.html as a template)
+    -->
+    <section class="projects-grid">
+
+      <!-- Project 1: Consumer App VI (password protected) -->
+      <a class="project-card" href="consumer-app-vi.html" data-category="ux">
+        <div class="img-placeholder"></div>
+        <div class="lock-badge">🔒</div>
+        <div class="overlay">
+          <span class="project-tag">UXR / UX</span>
+          <span class="project-name">Consumer App.VI</span>
+          <span class="project-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- Project 2: Consumer App VII (password protected) -->
+      <a class="project-card" href="consumer-app-vii.html" data-category="ux">
+        <div class="img-placeholder"></div>
+        <div class="lock-badge">🔒</div>
+        <div class="overlay">
+          <span class="project-tag">UXR / UX</span>
+          <span class="project-name">Consumer App.VII</span>
+          <span class="project-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- Project 3: Consumer App VIII (password protected) -->
+      <a class="project-card" href="consumer-app-viii.html" data-category="ux">
+        <div class="img-placeholder"></div>
+        <div class="lock-badge">🔒</div>
+        <div class="overlay">
+          <span class="project-tag">UXR / UX</span>
+          <span class="project-name">Consumer App.VIII</span>
+          <span class="project-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- Project 4: StayFit -->
+      <a class="project-card" href="stayfit.html" data-category="ux">
+        <div class="img-placeholder"></div>
+        <div class="overlay">
+          <span class="project-tag">UXR / UX</span>
+          <span class="project-name">StayFit</span>
+          <span class="project-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- Project 5: Text Enlargement -->
+      <a class="project-card" href="text-enlargement.html" data-category="ux">
+        <div class="img-placeholder"></div>
+        <div class="overlay">
+          <span class="project-tag">Problem Solving / UXR</span>
+          <span class="project-name">Text Enlargement — Assistive Tech Case Study</span>
+          <span class="project-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- 
+        =============================================
+        ADD YOUR INDUSTRIAL DESIGN PROJECTS BELOW:
+        =============================================
+        Example:
+        <a class="project-card" href="industrial-project.html" data-category="industrial">
+          <img src="images/industrial-thumb.jpg" alt="Industrial Project">
+          <div class="overlay">
+            <span class="project-tag">Industrial Design</span>
+            <span class="project-name">Your Project Name</span>
+            <span class="project-arrow">→</span>
+          </div>
+        </a>
+      -->
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-cta">Let's talk soon.</div>
+      <a class="footer-email" href="mailto:hanabelassi.designs@gmail.com">
+        hanabelassi.designs@gmail.com
+      </a>
+      <ul class="footer-socials">
+        <li><a href="https://www.behance.net/H_Belassi" target="_blank" rel="noopener">Bē</a></li>
+        <li><a href="https://www.linkedin.com/in/belassi93/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://www.instagram.com/h.belassi_design/" target="_blank" rel="noopener">Instagram</a></li>
+      </ul>
+      <p class="footer-copy">© Copyright 2025 HanaBelassi. All Rights Reserved.</p>
+    </footer>
+
+  </div><!-- end page-wrapper -->
+
+  <script>
+    // --- Sticky nav shadow on scroll ---
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // --- Project filter ---
+    function filterProjects(category, btn) {
+      // Update active tab
+      document.querySelectorAll('.filter-tabs button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      // Show/hide cards
+      document.querySelectorAll('.project-card').forEach(card => {
+        const match = card.dataset.category === category;
+        card.setAttribute('data-hidden', !match);
+      });
+    }
+  </script>
+
+</body>
+</html>
