@@ -164,6 +164,7 @@ nav.scrolled {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   background: var(--bg-white);
+  padding-left: var(--gutter);
 }
 
 .project-card {
