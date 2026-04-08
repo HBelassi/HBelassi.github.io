@@ -115,9 +115,10 @@ nav.scrolled {
 }
 
 .hero p {
-  font-size: clamp(1.2rem, 2.3vw, 1.9rem);
+  font-size: clamp(1.2rem, 2.3vw, 1.67rem);
   font-weight: 500;
   color: var(--text);
+  letter-spacing: 0em;
 }
 
 /* ---------- FILTER TABS ---------- */
