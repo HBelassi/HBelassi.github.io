@@ -1,8 +1,10 @@
 /* ============================================
    HANA BELASSI PORTFOLIO — STYLESHEET
+   Font: Poppins (matching Squarespace original)
+   Accent: hsla(354.04,100%,68.43%,1) — hot pink
    ============================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap');
 
 /* ---------- RESET & BASE ---------- */
 *, *::before, *::after {
@@ -12,25 +14,23 @@
 }
 
 :root {
-  --bg:       #f7f4f0;
-  --bg-warm:  #f2ece6;
+  --bg:       hsl(0, 0%, 98.04%);  /* #fafafa — matches Squarespace */
+  --bg-white: #ffffff;
   --text:     #111111;
   --muted:    #777;
-  --border:   #e5dfd8;
-  --white:    #ffffff;
-  --font:     'Jost', sans-serif;
+  --border:   #e8e4e0;
+  --accent:   hsla(354.04, 100%, 68.43%, 1); /* hot pink */
+  --font:     'Poppins', sans-serif;
   --nav-h:    70px;
   --max-w:    1400px;
-  --gutter:   5vw;
+  --gutter:   4vw;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   font-family: var(--font);
-  background: var(--bg);
+  background: var(--bg-white);
   color: var(--text);
   font-size: 16px;
   line-height: 1.6;
@@ -51,9 +51,7 @@ img {
 /* ---------- NAVIGATION ---------- */
 nav {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   z-index: 100;
   height: var(--nav-h);
   display: flex;
@@ -62,19 +60,19 @@ nav {
   padding: 0 var(--gutter);
   background: var(--bg);
   border-bottom: 1px solid transparent;
-  transition: border-color 0.3s ease, background 0.3s ease;
+  transition: border-color 0.3s, background 0.3s;
 }
 
 nav.scrolled {
   border-color: var(--border);
-  background: rgba(247, 244, 240, 0.95);
+  background: rgba(250, 250, 250, 0.95);
   backdrop-filter: blur(8px);
 }
 
 .nav-logo {
-  font-size: 1.15rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
   color: var(--text);
 }
 
@@ -87,33 +85,28 @@ nav.scrolled {
 .nav-links a {
   font-size: 0.9rem;
   font-weight: 400;
-  letter-spacing: 0.02em;
   color: var(--text);
   position: relative;
-  transition: opacity 0.2s;
+  transition: color 0.2s;
 }
 
 .nav-links a::after {
   content: '';
   position: absolute;
-  bottom: -3px;
-  left: 0;
-  right: 0;
+  bottom: -3px; left: 0; right: 0;
   height: 1px;
   background: var(--text);
   transform: scaleX(0);
   transition: transform 0.25s ease;
 }
 
+.nav-links a:hover { color: var(--text); }
 .nav-links a:hover::after,
-.nav-links a.active::after {
-  transform: scaleX(1);
-}
+.nav-links a.active::after { transform: scaleX(1); }
 
 /* ---------- PAGE WRAPPER ---------- */
 .page-wrapper {
   padding-top: var(--nav-h);
-  min-height: 100vh;
 }
 
 /* ---------- HOMEPAGE HERO ---------- */
@@ -123,20 +116,21 @@ nav.scrolled {
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  min-height: 55vh;
+  min-height: 52vh;
   padding: 4rem var(--gutter) 3rem;
+  background: var(--bg); /* light grey — matches Squarespace hero */
 }
 
 .hero h1 {
-  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-size: clamp(2.8rem, 5.5vw, 5rem);
   font-weight: 700;
   letter-spacing: -0.03em;
-  line-height: 1.1;
-  margin-bottom: 1rem;
+  line-height: 1.08;
+  margin-bottom: 0.8rem;
 }
 
 .hero p {
-  font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+  font-size: clamp(0.9rem, 1.4vw, 1.05rem);
   font-weight: 400;
   color: var(--text);
   letter-spacing: 0.01em;
@@ -144,7 +138,8 @@ nav.scrolled {
 
 /* ---------- FILTER TABS ---------- */
 .filter-section {
-  padding: 0 var(--gutter) 2rem;
+  padding: 2rem var(--gutter) 2rem;
+  background: var(--bg-white); /* pure white — project area */
   border-bottom: 1px solid var(--border);
 }
 
@@ -154,16 +149,14 @@ nav.scrolled {
   list-style: none;
 }
 
-.filter-tabs li {
-  margin-right: 2.5rem;
-}
+.filter-tabs li { margin-right: 2.5rem; }
 
 .filter-tabs button {
   background: none;
   border: none;
   cursor: pointer;
   font-family: var(--font);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 400;
   letter-spacing: 0.04em;
   color: var(--muted);
@@ -171,6 +164,11 @@ nav.scrolled {
   padding-bottom: 4px;
   position: relative;
   transition: color 0.2s;
+}
+
+/* HOT PINK HOVER — matching Squarespace */
+.filter-tabs button:hover {
+  color: var(--accent);
 }
 
 .filter-tabs button.active {
@@ -181,9 +179,7 @@ nav.scrolled {
 .filter-tabs button.active::after {
   content: '';
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  bottom: 0; left: 0; right: 0;
   height: 1.5px;
   background: var(--text);
 }
@@ -193,7 +189,7 @@ nav.scrolled {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0;
-  padding: 0 var(--gutter);
+  background: var(--bg-white);
 }
 
 .project-card {
@@ -203,35 +199,31 @@ nav.scrolled {
   cursor: pointer;
   display: block;
   border: 0.5px solid var(--border);
+  background: var(--bg-white);
 }
 
 .project-card img {
-  width: 100%;
-  height: 100%;
+  width: 100%; height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease;
 }
 
-/* Image placeholder when no image provided */
 .project-card .img-placeholder {
-  width: 100%;
-  height: 100%;
+  width: 100%; height: 100%;
   background: #1a1a2e;
-  background-image: 
+  background-image:
     radial-gradient(ellipse at 20% 30%, rgba(80,80,120,0.4) 0%, transparent 60%),
     radial-gradient(ellipse at 80% 70%, rgba(60,60,100,0.3) 0%, transparent 60%);
   transition: transform 0.5s ease;
 }
 
 .project-card:hover img,
-.project-card:hover .img-placeholder {
-  transform: scale(1.03);
-}
+.project-card:hover .img-placeholder { transform: scale(1.04); }
 
 .project-card .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.88);
+  background: rgba(255,255,255,0.9);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -241,12 +233,10 @@ nav.scrolled {
   transition: opacity 0.3s ease;
 }
 
-.project-card:hover .overlay {
-  opacity: 1;
-}
+.project-card:hover .overlay { opacity: 1; }
 
 .overlay .project-tag {
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -255,7 +245,7 @@ nav.scrolled {
 }
 
 .overlay .project-name {
-  font-size: clamp(1rem, 1.8vw, 1.35rem);
+  font-size: clamp(0.95rem, 1.6vw, 1.25rem);
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.2;
@@ -264,37 +254,21 @@ nav.scrolled {
 
 .overlay .project-arrow {
   margin-top: 1rem;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 300;
-}
-
-/* Lock badge for password-protected projects */
-.project-card .lock-badge {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: rgba(255,255,255,0.9);
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.7rem;
-  z-index: 2;
 }
 
 /* ---------- FOOTER ---------- */
 footer {
   margin-top: 6rem;
   padding: 4rem var(--gutter) 2.5rem;
-  background: var(--bg-warm);
+  background: var(--bg);
   border-top: 1px solid var(--border);
   text-align: center;
 }
 
 .footer-cta {
-  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-size: clamp(2rem, 4vw, 3.2rem);
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.1;
@@ -302,16 +276,15 @@ footer {
 }
 
 .footer-email {
-  font-size: 0.9rem;
+  display: block;
+  font-size: 0.88rem;
   color: var(--muted);
   letter-spacing: 0.04em;
   margin-bottom: 1.5rem;
   transition: color 0.2s;
 }
 
-.footer-email:hover {
-  color: var(--text);
-}
+.footer-email:hover { color: var(--text); }
 
 .footer-socials {
   display: flex;
@@ -322,17 +295,18 @@ footer {
 }
 
 .footer-socials a {
-  font-size: 0.85rem;
+  font-size: 0.83rem;
   font-weight: 600;
   letter-spacing: 0.06em;
   color: var(--text);
   border-bottom: 1px solid transparent;
   padding-bottom: 2px;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, color 0.2s;
 }
 
 .footer-socials a:hover {
   border-color: var(--text);
+  color: var(--accent);
 }
 
 .footer-copy {
@@ -370,7 +344,7 @@ footer {
 }
 
 .about-photo .photo-placeholder {
-  background: var(--bg-warm);
+  background: var(--bg);
   border: 1px solid var(--border);
   display: flex;
   align-items: center;
@@ -382,7 +356,7 @@ footer {
 }
 
 .about-content h1 {
-  font-size: clamp(2.5rem, 4vw, 3.8rem);
+  font-size: clamp(2.2rem, 3.5vw, 3.5rem);
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.1;
@@ -390,66 +364,63 @@ footer {
 }
 
 .about-content .location {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-style: italic;
   color: var(--muted);
   margin-bottom: 2.5rem;
 }
 
 .about-bio p {
-  font-size: 0.95rem;
-  line-height: 1.8;
+  font-size: 0.92rem;
+  line-height: 1.85;
   color: var(--text);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.4rem;
   font-weight: 300;
 }
 
-/* Experience */
 .section-label {
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--muted);
-  margin-bottom: 2rem;
-  margin-top: 3.5rem;
+  margin-bottom: 1.5rem;
+  margin-top: 3rem;
   padding-bottom: 0.6rem;
   border-bottom: 1px solid var(--border);
 }
 
-.experience-list {
-  list-style: none;
-}
+.experience-list { list-style: none; }
 
 .experience-item {
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 1.5rem;
-  padding: 1.25rem 0;
+  padding: 1.2rem 0;
   border-bottom: 1px solid var(--border);
 }
 
 .exp-date {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: var(--muted);
   font-weight: 400;
   padding-top: 2px;
 }
 
 .exp-content .exp-company {
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 600;
   letter-spacing: -0.01em;
   margin-bottom: 0.2rem;
 }
 
 .exp-content .exp-role {
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   color: var(--muted);
   line-height: 1.5;
+  font-weight: 400;
 }
 
-/* Skills */
 .skills-grid {
   display: flex;
   flex-wrap: wrap;
@@ -458,39 +429,39 @@ footer {
 }
 
 .skill-tag {
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 500;
   letter-spacing: 0.02em;
   padding: 0.35rem 0.85rem;
-  background: var(--bg-warm);
+  background: var(--bg);
   border: 1px solid var(--border);
   border-radius: 2px;
 }
 
 /* ---------- PROJECT PAGE ---------- */
 .project-hero {
-  min-height: 80vh;
+  min-height: 75vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 4rem var(--gutter);
-  background: var(--bg-warm);
+  background: var(--bg); /* light grey like Squarespace */
 }
 
 .project-hero .year {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 400;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--muted);
   margin-bottom: 1.5rem;
 }
 
 .project-hero h1 {
-  font-size: clamp(3.5rem, 10vw, 10rem);
-  font-weight: 800;
+  font-size: clamp(3.5rem, 9vw, 9rem);
+  font-weight: 800;  /* Heavy — matching Squarespace */
   letter-spacing: -0.03em;
   line-height: 0.95;
   text-transform: uppercase;
@@ -498,16 +469,19 @@ footer {
 
 .project-hero .hero-subtitle {
   margin-top: 2rem;
-  font-size: 0.9rem;
-  letter-spacing: 0.1em;
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--muted);
+  font-weight: 400;
 }
 
+/* Project content area — pure white */
 .project-content {
   max-width: 860px;
   margin: 0 auto;
   padding: 5rem var(--gutter);
+  background: var(--bg-white);
 }
 
 .project-meta {
@@ -520,9 +494,9 @@ footer {
 }
 
 .meta-item label {
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--muted);
   display: block;
@@ -530,12 +504,12 @@ footer {
 }
 
 .meta-item span {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 500;
 }
 
 .project-body h2 {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 700;
   letter-spacing: -0.02em;
   margin-top: 3rem;
@@ -543,26 +517,42 @@ footer {
 }
 
 .project-body p {
-  font-size: 0.95rem;
-  line-height: 1.85;
+  font-size: 0.92rem;
+  line-height: 1.9;
   font-weight: 300;
   color: var(--text);
   margin-bottom: 1.5rem;
 }
 
+.project-body strong {
+  font-weight: 600;
+}
+
+.project-body a {
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.project-body a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
 .project-body .img-block {
   width: 100%;
   aspect-ratio: 16/9;
-  background: var(--bg-warm);
+  background: var(--bg);
   border: 1px solid var(--border);
   margin: 2.5rem 0;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--muted);
-  font-size: 0.75rem;
+  font-size: 0.73rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  font-family: var(--font);
 }
 
 .project-body .img-block img {
@@ -571,143 +561,47 @@ footer {
   object-fit: cover;
 }
 
-/* Password gate */
-.password-gate {
-  min-height: 80vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 4rem var(--gutter);
-}
-
-.password-gate svg {
-  opacity: 0.25;
-  margin-bottom: 2rem;
-}
-
-.password-gate p {
-  font-size: 0.85rem;
-  color: var(--muted);
-  margin-bottom: 1.5rem;
-}
-
-.password-form {
-  display: flex;
-  gap: 0;
-  max-width: 320px;
-  width: 100%;
-  border: 1px solid var(--border);
-}
-
-.password-form input {
-  flex: 1;
-  padding: 0.75rem 1rem;
-  font-family: var(--font);
-  font-size: 0.85rem;
-  border: none;
-  background: var(--white);
-  outline: none;
-  color: var(--text);
-}
-
-.password-form button {
-  padding: 0.75rem 1.2rem;
-  background: var(--text);
-  color: var(--white);
-  border: none;
-  cursor: pointer;
-  font-size: 1rem;
-  display: flex;
-  align-items: center;
-  transition: opacity 0.2s;
-}
-
-.password-form button:hover {
-  opacity: 0.75;
-}
-
-.password-error {
-  margin-top: 0.75rem;
-  font-size: 0.75rem;
-  color: #c0392b;
-  display: none;
-}
-
-/* ---------- PROJECT NAV ---------- */
+/* Project nav */
 .project-nav {
   padding: 2rem var(--gutter);
   border-top: 1px solid var(--border);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: var(--bg-white);
 }
 
 .project-nav a {
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   border-bottom: 1px solid transparent;
   padding-bottom: 2px;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, color 0.2s;
 }
 
 .project-nav a:hover {
   border-color: var(--text);
+  color: var(--accent);
 }
 
-/* ---------- HIDDEN / FILTER LOGIC ---------- */
-.project-card[data-hidden="true"] {
-  display: none;
-}
+/* Filter logic */
+.project-card[data-hidden="true"] { display: none; }
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 900px) {
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-
-  .about-photo {
-    position: static;
-    max-width: 380px;
-  }
-
-  .project-meta {
-    grid-template-columns: 1fr 1fr;
-  }
+  .projects-grid { grid-template-columns: repeat(2, 1fr); }
+  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .about-photo { position: static; max-width: 380px; }
+  .project-meta { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 600px) {
-  :root {
-    --gutter: 6vw;
-  }
-
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .hero {
-    min-height: 45vh;
-    padding: 3rem var(--gutter) 2rem;
-  }
-
-  .project-hero h1 {
-    font-size: clamp(3rem, 14vw, 6rem);
-  }
-
-  .project-meta {
-    grid-template-columns: 1fr;
-  }
-
-  .experience-item {
-    grid-template-columns: 1fr;
-    gap: 0.4rem;
-  }
+  :root { --gutter: 6vw; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .hero { min-height: 42vh; padding: 3rem var(--gutter) 2rem; }
+  .project-hero h1 { font-size: clamp(3rem, 14vw, 6rem); }
+  .project-meta { grid-template-columns: 1fr; }
+  .experience-item { grid-template-columns: 1fr; gap: 0.3rem; }
 }
